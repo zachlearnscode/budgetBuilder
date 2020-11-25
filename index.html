@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Builder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row py-2 border-bottom">
+      <div class="div col-12 d-flex justify-content-between align-items-center" id="dashboard">
+        <div class="h2">$<span id="remaining"></span></div>
+        <div class="d-flex flex-column align-items-end">
+          <div class="h4">Planned Income: $<span id="pIncome"></span></div>
+          <div class="h4">Planned Expenses: $<span id="pExpenses"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height:calc(100vh - 65px)">
+      <div class="col-6 border-right py-2">
+        <div class="m-4 p-3 border rounded" id="budgetContainer">
+          <h2 id="title">Budget</h2>
+          <table class="table table-striped" id="budget">
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Planned</th>
+                <th scope="col">Actual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="category">Savings</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Housing</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Debt</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Bills</td>
+                <td>$<span class="planned" id="test"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Food</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Transportation</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+              <tr>
+                <td class="category">Lifestyle</td>
+                <td>$<span class="planned"></span></td>
+                <td>$<span class="actual"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-6 d-flex flex-column justify-content-center align-items-center" id="buttonContainer">
+          <button type="button" id="log" class="btn btn-primary m-2" data-toggle="modal" data-target="#logModal">Log Expense(s)</button>
+          <button type="button" id="edit" class="btn btn-primary m-2" data-toggle="modal" data-target="#editModal">Edit My Budget</button>
+      </div>
+    </div>
+  </div>
+//Modals  
+  <div class="modal fade" id="logModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Log Expense(s)</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="logFormAmount">Amount</label>
+              <input type="text" class="form-control" id="logFormAmount">
+            </div>
+            <div class="form-group">
+              <label for="logFormCategory">Category</label>
+              <select class="form-control" id="logFormCategory">
+                <option value="savings">Savings</option>
+                <option value="housing">Housing</option>
+                <option value="debt">Debt</option>
+                <option value="bills">Bills</option>
+                <option value="food">Food</option>
+                <option value="transportation">Transportation</option>
+                <option value="lifestyle">Lifestyle</option>
+              </select>
+            </div>
+          </form>   
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="logSave">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="editModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit My Budget</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="editFormAmount">Amount</label>
+              <input type="text" class="form-control" id="editFormAmount">
+            </div>
+            <div class="form-group">
+              <label for="editFormCategory">Category</label>
+              <select class="form-control" id="editFormCategory">
+                <option value="income">Income</option>
+                <option value="savings">Savings</option>
+                <option value="housing">Housing</option>
+                <option value="debt">Debt</option>
+                <option value="bills">Bills</option>
+                <option value="food">Food</option>
+                <option value="transportation">Transportation</option>
+                <option value="lifestyle">Lifestyle</option>
+              </select>
+            </div>
+          </form>   
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="editSave">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
